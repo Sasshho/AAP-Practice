@@ -56,11 +56,20 @@ std::cerr<<"Error code 1"<<std::endl;
 return 1;
 }
 
+int ** matrix =nullptr;
 
-int ** matrix=new int*[rows];
+try
+{
+matrix=new int*[rows];
 for(size_t i =0;i<rows;i++)
 {
 matrix[i]=new int[cols];
+}
+}
+catch(const std::bad_alloc& a)
+{
+std::cerr<<"Error code 2"<<std::endl;
+return 2;
 }
 
 try
